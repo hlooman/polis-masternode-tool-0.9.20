@@ -43,7 +43,7 @@ This action can be carried out using the *Polis Core* reference software client.
 
 # Polis Masternode Tool
 
-The main purpose of the application is to give masternode operators (MNOs) the ability to send the `start masternode` command through an easy to use a graphical user interface if the masternode collateral is controlled by a hardware wallet such as Trezor, KeepKey or Ledger.
+The main purpose of the application is to give masternode operators (MNOs) the ability to send the `start masternode` command through an easy to use a graphical user interface if the masternode collateral is controlled by a Trezor hardware wallet.
 
 ## Feature list
 
@@ -52,14 +52,10 @@ The main purpose of the application is to give masternode operators (MNOs) the a
 * Signing messages with a hardware wallet
 * Voting on proposals
 * Initialization/recovery of hardware wallets seeds
-* Updating of hardware wallets firmware (Trezor/KeepKey)
-* Support for Polis Testnet
 
 ## Supported hardware wallets
 
 - [x] Trezor (model One and T)
-- [x] KeepKey
-- [x] Ledger Nano S
 
 Most of the application features are accessible from the main program window:  
 ![Main window](doc/img/pmt-main-window.png)
@@ -69,8 +65,6 @@ Most of the application features are accessible from the main program window:
 ## Setting up the hardware wallet type
  * Click the `Configure` button.
  * Select the `Miscellaneous` tab in the configuration dialog that appears.
- * Depending on the type of your hardware wallet, select the `Trezor`, `KeepKey` or `Ledger Nano S` option.  
-     ![Configuration window](doc/img/pmt-config-dlg-misc.png)
 
 ## Connection setup
 
@@ -84,10 +78,10 @@ Depending on your preferences (and skills) you can choose one of three possible 
 ## Masternode setup
 
 Here we make the following assumptions:
-  * You already have a server running the Polis daemon software (*polisd*) that you want to use as a masternode. If you don't, you will need to install and configure one first by following the guide on the [Polis Wiki](https://polispay.atlassian.net/wiki/spaces/DOC/pages/113934340).
+  * You already have a server running the Polis daemon software (*polisd*) that you want to use as a masternode.
   * We occasionally refer to the *polisd* configuration file, so it is assumed that *polisd* is running under a Linux operating system (OS), which is the most popular and recommended OS for this purpose.
   * Your server has a public IP address that will be visible on the Internet.
-  * You have set up a TCP port on which your *polisd* listens for incoming connections (usually 9999).
+  * You have set up a TCP port on which your *polisd* listens for incoming connections (usually 24126).
 
 Further configuration steps depend on whether you already have a masternode controlled by *Polis Core* which you want to migrate to a hardware wallet managed by *PMT*, or if you are setting up a new masternode.
 
@@ -208,44 +202,4 @@ For this reason, in addition to providing the source code on GitHub, binary vers
 * macOS 10.13.2 High Sierra
 * Linux Debian Jessie
 
-Binary versions of the latest release can be downloaded from: https://github.com/Bertrand256/polis-masternode-tool/releases/latest.
-
-### Verification of the application binary files
-Beginning with version 0.9.15, each binary file forming part of a release has a corresponding signature file that you can use to verify the authenticity of the downloaded binary file (to ensure it has not been corrupted or replaced with a counterfeit) and confirm that it has been signed by the application author (Keybase user: bertrand256).
-
-The verification method described below is based on use of the Keybase application, so if you have not already done so, download the installer from https://keybase.io/download and install the app.
-
-**Verification steps**
-
-1. Open your OS command line terminal
-
-2. Change the current directory to the folder where the PMT release files were downloaded:
-
-   `cd /Users/<username>/pmt-dist`
-
-   After invoking the *list directory* command (`ls` for Mac/Linux, `dir` for Windows ) you should see both the archived executable (.tar.gz, .zip) and the corresponding signature file (.asc):
-
-   ```
-   <username>: ls
-   PolisMasternodeTool_0.9.15.mac.zip    PolisMasternodeTool_0.9.15.mac.zip.asc
-   ```
-
-
-3. Verify the signature by executing the following command:
-
-   ```
-   keybase pgp verify -d PolisMasternodeTool_0.9.15.mac.zip.asc -i PolisMasternodeTool_0.9.15.mac.zip -S bertrand256
-   ```
-
-   You should see something similar to the following if verification was successful:
-
-   ```
-   ▶ INFO Identifying bertrand256
-   ✔ public key fingerprint: 8044 DCB5 D241 349F 815F 9522 0D8F 46CA A62F 7EFD
-   ฿  bitcoin 1BkMySjL6K72LWX82SVVmgCuZCuZ3DfuxS
-   ฿  zcash t1byMTzteuJ8n1XUwxBzYXXV8qVv5kh3bFn
-   ✔ "bertrand256" on reddit: https://www.reddit.com/r/KeybaseProofs/comments/688799/my_keybase_proof_redditbertrand256/ [cached 2018-01-19 10:27:37 CET]
-   ✔ "bertrand256" on github: https://gist.github.com/781be961e33042c68d617782b0060844 [cached 2018-01-19 10:27:37 CET]
-   Signature verified. Signed by bertrand256 1 hour ago (2018-01-19 11:46:05 +0100 CET).
-   PGP Fingerprint: 8044dcb5d241349f815f95220d8f46caa62f7efd.
-   ```
+Binary versions of the latest release can be downloaded from: https://github.com/hlooman/polis-masternode-tool/releases/latest.
