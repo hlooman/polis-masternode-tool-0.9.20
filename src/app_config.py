@@ -74,8 +74,8 @@ class AppConfig(object):
 
         self.polis_network = 'MAINNET'
 
-        self.block_explorer_tx_mainnet = 'https://insight.polispay.org/insight/tx/%TXID%'
-        self.block_explorer_addr_mainnet = 'https://insight.polispay.org/insight/address/%ADDRESS%'
+        self.block_explorer_tx_mainnet = 'https://blockbook.polis.tools/tx/%TXID%'
+        self.block_explorer_addr_mainnet = 'https://blockbook.polis.tools/address/%ADDRESS%'
         self.block_explorer_tx_testnet = 'https://test.insight.polis.siampm.com/tx/%TXID%'
         self.block_explorer_addr_testnet = 'https://test.insight.polis.siampm.com/address/%ADDRESS%'
         self.polis_central_proposal_api = 'https://www.poliscentral.org/api/v1/proposal?hash=%HASH%'
