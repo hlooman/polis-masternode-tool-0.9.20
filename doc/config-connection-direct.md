@@ -15,6 +15,7 @@ rpcpassword=any_alphanumeric_string_as_a_password
 rpcport=24127
 rpcallowip=127.0.0.1
 server=1
+listen=1
 addressindex=1
 spentindex=1
 timestampindex=1
